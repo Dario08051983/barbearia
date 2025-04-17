@@ -24,11 +24,12 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_HAPPY_HILL_06BE9061E }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"              # Seu site está na raiz
-          output_location: "/"           # Nada a ser "buildado"
-          app_build_command: ""          # <- ESSA LINHA resolve o erro
+          app_location: "/"             # Caminho onde está o index.html
+          api_location: ""              # Caso use funções serverless, preencha aqui
+          output_location: "/"          # Para sites estáticos simples, mantenha "/"
+          app_build_command: ""         # Se não precisar rodar npm run build
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -41,3 +42,6 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_HAPPY_HILL_06BE9061E }}
           action: "close"
+          app_location: "/"
+          output_location: "/"
+          app_build_command: ""
