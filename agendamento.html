@@ -34,7 +34,7 @@
 
       const dados = Object.fromEntries(new FormData(e.target).entries());
 
-      const resposta = await fetch('http://localhost:3000/salvar', {
+      const resposta = await fetch('https://barbearia-agendamento.azurewebsites.net/agendar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
