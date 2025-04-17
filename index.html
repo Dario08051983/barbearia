@@ -1,11 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barbearia Estilo Fino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .banner {
+      background: url('https://images.unsplash.com/photo-1588776814546-ec7a376abf7d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .banner h2 {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 36px;
+    }
+
+    .section {
+      padding: 60px 40px;
+    }
+
+    .section h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .services {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .service {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .service img {
+      width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .testimonials {
+      background-color: #eee;
+    }
+
+    .testimonial {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>dario junior nascimento da silva</h1>
+
+  <header>
+    <h1>Barbearia Estilo Fino</h1>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Serviços</a>
+      <a href="#">Agendamento</a>
+      <a href="#">Contato</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h2>Estilo, Elegância e Tradição</h2>
+  </section>
+
+  <section class="section">
+    <h3>Nossos Serviços</h3>
+    <div class="services">
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1619895862022-f6176e7fd6f2?auto=format&fit=crop&w=600&q=60" alt="Corte de Cabelo">
+        <h4>Corte Masculino</h4>
+        <p>Estilos modernos e clássicos com acabamento perfeito.</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1599351431385-0bfe0833f812?auto=format&fit=crop&w=600&q=60" alt="Barba">
+        <h4>Barba Completa</h4>
+        <p>Modelagem profissional com toalha quente e navalha.</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1559599101-bc6fc54b6263?auto=format&fit=crop&w=600&q=60" alt="Tratamentos">
+        <h4>Tratamentos</h4>
+        <p>Cuidados com a pele, hidratação capilar e relaxamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials">
+    <h3>O que dizem nossos clientes</h3>
+    <div class="testimonial">“Excelente atendimento e profissionais qualificados. Saio sempre renovado!” – João Silva</div>
+    <div class="testimonial">“Ambiente limpo, organizado e com preço justo. Recomendo!” – Carlos Mendes</div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Barbearia Estilo Fino. Todos os direitos reservados.</p>
+  </footer>
+
 </body>
 </html>
