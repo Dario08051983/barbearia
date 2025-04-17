@@ -88,7 +88,6 @@
       text-align: center;
       padding: 20px;
     }
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -125,6 +124,12 @@
       font-size: 28px;
       color: #aaa;
       cursor: pointer;
+    }
+
+    #mensagem {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
@@ -184,7 +189,8 @@
         <input type="tel" id="telefone" placeholder="Telefone" required>
         <input type="date" id="data" required>
         <input type="time" id="horario" required>
-        <button type="submit">Salvar XML</button>
+        <button type="submit">Agendar</button>
+        <div id="mensagem"></div>
       </form>
     </div>
   </div>
@@ -203,27 +209,45 @@
       if (event.target == modal) modal.style.display = "none";
     }
 
-    function salvarXML() {
+    async function salvarXML() {
       const nome = document.getElementById('nome').value;
       const telefone = document.getElementById('telefone').value;
       const data = document.getElementById('data').value;
       const horario = document.getElementById('horario').value;
 
-      const xmlContent =
-`<agendamento>
+      const xml = `
+<agendamento>
   <nome>${nome}</nome>
   <telefone>${telefone}</telefone>
   <data>${data}</data>
   <horario>${horario}</horario>
-</agendamento>`;
+</agendamento>`.trim();
 
-      const blob = new Blob([xmlContent], { type: 'application/xml' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `agendamento-${Date.now()}.xml`;
-      a.click();
-      URL.revokeObjectURL(url);
+      const blob = new Blob([xml], { type: "application/xml" });
+      const fileName = `agendamento-${Date.now()}.xml`;
+
+      const url = `https://barbeariafiles001.blob.core.windows.net/agendamentos/${fileName}?sp=racwdl&st=2025-04-17T19:11:57Z&se=2028-03-01T03:11:57Z&spr=https&sv=2024-11-04&sr=c&sig=bi6jr6PmhLKedS9w5b9R6ufTv2RdY0m9ksVFCjwmgEU%3D`;
+
+      try {
+        const response = await fetch(url, {
+          method: "PUT",
+          headers: {
+            "x-ms-blob-type": "BlockBlob",
+            "Content-Type": "application/xml"
+          },
+          body: blob
+        });
+
+        if (response.ok) {
+          document.getElementById("mensagem").innerText = "✅ Agendamento enviado com sucesso!";
+        } else {
+          throw new Error("Erro no envio: " + response.status);
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById("mensagem").innerText = "❌ Erro ao salvar agendamento.";
+      }
+
       fecharModal();
     }
   </script>
