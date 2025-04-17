@@ -6,12 +6,18 @@
   <title>Barbearia Estilo Fino</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #f2f2f2;
       color: #333;
     }
+
     header {
       background-color: #111;
       color: #fff;
@@ -21,13 +27,20 @@
       align-items: center;
       flex-wrap: wrap;
     }
+
     header h1 {
       font-size: 24px;
       flex: 1 0 100%;
       text-align: center;
       margin-bottom: 10px;
     }
-    nav { display: flex; justify-content: center; flex-wrap: wrap; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     nav a {
       color: #fff;
       text-decoration: none;
@@ -36,6 +49,7 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     .banner {
       background: url('https://images.unsplash.com/photo-1588776814546-ec7a376abf7d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
       height: 300px;
@@ -45,20 +59,31 @@
       color: white;
       text-align: center;
     }
+
     .banner h2 {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
       border-radius: 10px;
       font-size: 28px;
     }
-    .section { padding: 50px 20px; }
-    .section h3 { text-align: center; margin-bottom: 40px; font-size: 24px; }
+
+    .section {
+      padding: 50px 20px;
+    }
+
+    .section h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 24px;
+    }
+
     .services {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
     }
+
     .service {
       background-color: #fff;
       padding: 20px;
@@ -68,13 +93,18 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
     }
+
     .service img {
       width: 100%;
       border-radius: 10px;
       height: 180px;
       object-fit: cover;
     }
-    .testimonials { background-color: #eee; }
+
+    .testimonials {
+      background-color: #eee;
+    }
+
     .testimonial {
       max-width: 600px;
       margin: 0 auto 30px;
@@ -82,59 +112,59 @@
       padding: 0 20px;
       text-align: center;
     }
+
     footer {
       background-color: #111;
       color: #fff;
       text-align: center;
       padding: 20px;
     }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-    .modal-content input, .modal-content button {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .modal-content button {
-      background: #111;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    .fechar {
-      float: right;
-      font-size: 28px;
-      color: #aaa;
-      cursor: pointer;
+
+    /* Responsivo para tablets */
+    @media (min-width: 600px) {
+      header h1 {
+        font-size: 28px;
+        text-align: left;
+        flex: none;
+        margin-bottom: 0;
+      }
+
+      nav {
+        justify-content: flex-end;
+      }
+
+      nav a {
+        margin-left: 20px;
+      }
+
+      .banner h2 {
+        font-size: 36px;
+      }
+
+      .section h3 {
+        font-size: 28px;
+      }
     }
 
-    #mensagem {
-      margin-top: 10px;
-      font-weight: bold;
-      text-align: center;
-    }
+    /* Responsivo para telas pequenas */
+    @media (max-width: 400px) {
+      .banner {
+        height: 220px;
+      }
 
-    @media (max-width: 600px) {
-      .banner h2 { font-size: 24px; }
-      nav a { font-size: 14px; }
+      .banner h2 {
+        font-size: 20px;
+        padding: 15px;
+      }
+
+      .testimonial {
+        font-size: 14px;
+      }
+
+      nav a {
+        font-size: 14px;
+        margin: 5px;
+      }
     }
   </style>
 </head>
@@ -145,7 +175,7 @@
     <nav>
       <a href="#">Início</a>
       <a href="#">Serviços</a>
-      <a href="#" onclick="abrirModal()">Agendamento</a>
+      <a href="https://script.google.com/macros/s/AKfycbxdkXyv5OkJodCwd2kxgSbrOTC0xF5s5XvR_dgv0oqiR07gvg5SstXv08D9Iz3ijqyM/exec" target="_blank">Agendamento</a>
       <a href="#">Contato</a>
     </nav>
   </header>
@@ -158,7 +188,7 @@
     <h3>Nossos Serviços</h3>
     <div class="services">
       <div class="service">
-        <img src="https://images.unsplash.com/photo-1619895862022-f6176e7fd6f2?auto=format&fit=crop&w=600&q=60" alt="Corte">
+        <img src="https://images.unsplash.com/photo-1619895862022-f6176e7fd6f2?auto=format&fit=crop&w=600&q=60" alt="Corte de Cabelo">
         <h4>Corte Masculino</h4>
         <p>Estilos modernos e clássicos com acabamento perfeito.</p>
       </div>
@@ -167,90 +197,23 @@
         <h4>Barba Completa</h4>
         <p>Modelagem profissional com toalha quente e navalha.</p>
       </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1559599101-bc6fc54b6263?auto=format&fit=crop&w=600&q=60" alt="Tratamentos">
+        <h4>Tratamentos</h4>
+        <p>Cuidados com a pele, hidratação capilar e relaxamento.</p>
+      </div>
     </div>
   </section>
 
   <section class="section testimonials">
     <h3>O que dizem nossos clientes</h3>
-    <div class="testimonial">“Excelente atendimento e profissionais qualificados.” – João Silva</div>
+    <div class="testimonial">“Excelente atendimento e profissionais qualificados. Saio sempre renovado!” – João Silva</div>
+    <div class="testimonial">“Ambiente limpo, organizado e com preço justo. Recomendo!” – Carlos Mendes</div>
   </section>
 
   <footer>
     <p>&copy; 2025 Barbearia Estilo Fino. Todos os direitos reservados.</p>
   </footer>
-
-  <!-- Modal Agendamento -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="fechar" onclick="fecharModal()">&times;</span>
-      <h3>Agendar Horário</h3>
-      <form onsubmit="salvarXML(); return false;">
-        <input type="text" id="nome" placeholder="Seu nome" required>
-        <input type="tel" id="telefone" placeholder="Telefone" required>
-        <input type="date" id="data" required>
-        <input type="time" id="horario" required>
-        <button type="submit">Agendar</button>
-        <div id="mensagem"></div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function abrirModal() {
-      document.getElementById('modal').style.display = 'flex';
-    }
-
-    function fecharModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('modal');
-      if (event.target == modal) modal.style.display = "none";
-    }
-
-    async function salvarXML() {
-      const nome = document.getElementById('nome').value;
-      const telefone = document.getElementById('telefone').value;
-      const data = document.getElementById('data').value;
-      const horario = document.getElementById('horario').value;
-
-      const xml = `
-<agendamento>
-  <nome>${nome}</nome>
-  <telefone>${telefone}</telefone>
-  <data>${data}</data>
-  <horario>${horario}</horario>
-</agendamento>`.trim();
-
-      const blob = new Blob([xml], { type: "application/xml" });
-      const fileName = `agendamento-${Date.now()}.xml`;
-
-      const url = `https://barbeariafiles001.blob.core.windows.net/agendamentos/${fileName}?sp=racwdl&st=2025-04-17T19:11:57Z&se=2028-03-01T03:11:57Z&spr=https&sv=2024-11-04&sr=c&sig=bi6jr6PmhLKedS9w5b9R6ufTv2RdY0m9ksVFCjwmgEU%3D`;
-
-      try {
-        const response = await fetch(url, {
-          method: "PUT",
-          headers: {
-            "x-ms-blob-type": "BlockBlob",
-            "Content-Type": "application/xml"
-          },
-          body: blob
-        });
-
-        if (response.ok) {
-          document.getElementById("mensagem").innerText = "✅ Agendamento enviado com sucesso!";
-        } else {
-          throw new Error("Erro no envio: " + response.status);
-        }
-      } catch (err) {
-        console.error(err);
-        document.getElementById("mensagem").innerText = "❌ Erro ao salvar agendamento.";
-      }
-
-      fecharModal(); //estre
-    }
-  </script>
 
 </body>
 </html>

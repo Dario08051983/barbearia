@@ -17,9 +17,12 @@
     "url": "https://github.com/Dario08051983/barbearia/issues"
   },
   "homepage": "https://github.com/Dario08051983/barbearia#readme",
-  "description": "",
   "dependencies": {
+    "@azure/storage-blob": "^12.27.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "xmlbuilder": "^15.1.1"
-  }
+  },
+  "description": ""
 }
