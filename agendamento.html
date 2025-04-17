@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendar Horário</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Agendar Horário</h2>
+  <form id="formAgendamento">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="tel" name="telefone" placeholder="Telefone" required>
+    <input type="date" name="data" required>
+    <input type="time" name="horario" required>
+    <button type="submit">Enviar</button>
+    <p id="msg"></p>
+  </form>
+
+  <script>
+    document.getElementById('formAgendamento').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const dados = Object.fromEntries(new FormData(e.target).entries());
+
+      const resposta = await fetch('http://localhost:3000/salvar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+
+      if (resposta.ok) {
+        document.getElementById('msg').innerText = "Agendamento salvo!";
+        setTimeout(() => window.close(), 2000);
+      } else {
+        document.getElementById('msg').innerText = "Erro ao salvar.";
+      }
+    });
+  </script>
+</body>
+</html>
