@@ -120,55 +120,7 @@
       padding: 20px;
     }
 
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-
-    .modal-content input,
-    .modal-content button {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .modal-content button {
-      background-color: #111;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    .fechar {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Responsivo para tablets */
+    /* Responsivo */
     @media (min-width: 600px) {
       header h1 {
         font-size: 28px;
@@ -194,7 +146,6 @@
       }
     }
 
-    /* Responsivo para telas pequenas */
     @media (max-width: 400px) {
       .banner {
         height: 220px;
@@ -223,7 +174,7 @@
     <nav>
       <a href="#">Início</a>
       <a href="#">Serviços</a>
-      <a href="#" id="btn-agendar">Agendamento</a>
+      <a href="https://docs.google.com/spreadsheets/d/10gXrPfkdZsfFKGkiLZXXXXXXXXXXXX/edit" target="_blank">Agendamento</a>
       <a href="#">Contato</a>
     </nav>
   </header>
@@ -262,75 +213,6 @@
   <footer>
     <p>&copy; 2025 Barbearia Estilo Fino. Todos os direitos reservados.</p>
   </footer>
-
-  <!-- Modal de Agendamento -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="fechar" onclick="fecharModal()">&times;</span>
-      <h3>Agendar Horário</h3>
-      <form id="form-agendamento" action="https://formspree.io/f/mwpljyjd" method="POST">
-        <input type="text" name="nome" placeholder="Seu nome" required>
-        <input type="tel" name="telefone" placeholder="Telefone" required>
-        <input type="date" name="data" required>
-        <input type="time" name="horario" required>
-        <button type="submit">Agendar</button>
-        <p id="mensagem-sucesso" style="color: green; display: none; margin-top: 10px;">
-          Agendamento enviado com sucesso! ✅
-        </p>
-      </form>
-      
-    </div>
-  </div>
-
-  <script>
-    // Abrir o modal
-    document.getElementById('btn-agendar').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('modal').style.display = 'block';
-    });
-
-    // Fechar o modal
-    function fecharModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-
-    // Fechar ao clicar fora do conteúdo
-    window.onclick = function(event) {
-      const modal = document.getElementById('modal');
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-    // Confirmação após envio do formulário
-document.getElementById('form-agendamento').addEventListener('submit', function (e) {
-    e.preventDefault(); // Previne o envio padrão
-  
-    const form = e.target;
-    const data = new FormData(form);
-  
-    fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        document.getElementById('mensagem-sucesso').style.display = 'block';
-        form.reset(); // limpa campos
-        setTimeout(() => {
-          fecharModal(); // fecha modal após 3s
-          document.getElementById('mensagem-sucesso').style.display = 'none';
-        }, 3000);
-      } else {
-        alert("Erro ao enviar. Tente novamente.");
-      }
-    }).catch(error => {
-      alert("Erro ao enviar. Verifique sua conexão.");
-    });
-  });
-  
-  </script>
 
 </body>
 </html>
