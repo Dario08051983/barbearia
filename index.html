@@ -21,26 +21,37 @@
     header {
       background-color: #111;
       color: #fff;
-      padding: 20px 40px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     header h1 {
-      font-size: 28px;
+      font-size: 24px;
+      flex: 1 0 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 20px;
+      margin: 10px;
       font-weight: bold;
+      font-size: 16px;
     }
 
     .banner {
       background: url('https://images.unsplash.com/photo-1588776814546-ec7a376abf7d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      height: 400px;
+      height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -52,23 +63,23 @@
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
       border-radius: 10px;
-      font-size: 36px;
+      font-size: 28px;
     }
 
     .section {
-      padding: 60px 40px;
+      padding: 50px 20px;
     }
 
     .section h3 {
       text-align: center;
       margin-bottom: 40px;
-      font-size: 28px;
+      font-size: 24px;
     }
 
     .services {
       display: flex;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 20px;
       justify-content: center;
     }
 
@@ -76,7 +87,8 @@
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
-      width: 280px;
+      width: 100%;
+      max-width: 320px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
     }
@@ -96,6 +108,8 @@
       max-width: 600px;
       margin: 0 auto 30px;
       font-style: italic;
+      padding: 0 20px;
+      text-align: center;
     }
 
     footer {
@@ -103,6 +117,53 @@
       color: #fff;
       text-align: center;
       padding: 20px;
+    }
+
+    /* Responsividade para tablets */
+    @media (min-width: 600px) {
+      header h1 {
+        font-size: 28px;
+        text-align: left;
+        flex: none;
+        margin-bottom: 0;
+      }
+
+      nav {
+        justify-content: flex-end;
+      }
+
+      nav a {
+        margin-left: 20px;
+      }
+
+      .banner h2 {
+        font-size: 36px;
+      }
+
+      .section h3 {
+        font-size: 28px;
+      }
+    }
+
+    /* Responsivo para telas muito pequenas */
+    @media (max-width: 400px) {
+      .banner {
+        height: 220px;
+      }
+
+      .banner h2 {
+        font-size: 20px;
+        padding: 15px;
+      }
+
+      .testimonial {
+        font-size: 14px;
+      }
+
+      nav a {
+        font-size: 14px;
+        margin: 5px;
+      }
     }
   </style>
 </head>
