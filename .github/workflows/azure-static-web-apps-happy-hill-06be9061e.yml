@@ -30,6 +30,7 @@ jobs:
           app_location: "barbearia"         # <- caminho onde está o index.html (pasta raiz do projeto)
           api_location: ""                  # se não houver função Azure Functions, deixe em branco
           output_location: "/"             # mesmo diretório da aplicação, se não houver build step
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -45,3 +46,4 @@ jobs:
           app_location: "barbearia"
           api_location: ""
           output_location: "/"
+          skip_app_build: true
